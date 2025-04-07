@@ -8,7 +8,6 @@ class CustomUser(AbstractUser):
         ("teller", "Teller"),
         ("customer", "Customer"),
     ]
-
     role = models.CharField(max_length=10, choices=ROLE_CHOICES)
 
     @property
