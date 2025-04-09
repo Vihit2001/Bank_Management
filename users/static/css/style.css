@@ -1,83 +1,152 @@
-/* Full Page Layout */
-body {
-    font-family: Arial, sans-serif;
+/* General Styling */
+* {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
-/* Container */
-.container {
-    width: 80%;
-    height: 80vh;
+/* Full Page Background */
+body {
     display: flex;
-    background: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f4f4f4;
+}
+
+/* Container for Split Layout */
+.container {
+    display: flex;
+    width: 75%;
+    height: 75vh;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
     overflow: hidden;
 }
 
-/* Left Section */
-.left-section {
+/* Left Panel (Bank Info) */
+.left-panel {
     width: 50%;
-    background: #3498db;
+    background: url('/static/images/phot0.jpg') no-repeat center center/cover;
+    position: relative;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     color: white;
-    font-size: 36px;
-    font-weight: bold;
+    padding: 20px;
 }
 
-/* Right Section */
-.right-section {
+/* Overlay Effect */
+.left-panel .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay for better text visibility */
+}
+
+/* Bank Info Text */
+.bank-info {
+    position: relative;
+    z-index: 1;
+}
+
+.bank-info h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+.bank-info p {
+    font-size: 1.2rem;
+    max-width: 80%;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* Right Panel (Login Form) */
+.right-panel {
     width: 50%;
+    background: #fff;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background: #ecf0f1;
+    align-items: center;
 }
 
 /* Login Box */
 .login-box {
-    width: 300px;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 320px;
+    text-align: center;
+}
+
+.login-box h2 {
+    color: #333;
+    margin-bottom: 20px;
 }
 
 /* Input Fields */
-input {
+.input-group {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    margin-bottom: 15px;
 }
 
-/* Button */
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* Login Button */
 button {
     width: 100%;
-    padding: 10px;
-    background: #3498db;
-    border: none;
+    padding: 12px;
+    background: #007bff;
     color: white;
-    font-size: 16px;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
-    border-radius: 5px;
+    font-size: 16px;
+    transition: background 0.3s ease;
 }
 
 button:hover {
-    background: #2980b9;
+    background: #0056b3;
 }
 
-/* Error Message */
-.error {
-    color: red;
+/* Register Link */
+.register-link {
     margin-top: 10px;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+    .left-panel {
+        width: 100%;
+        height: 40vh;
+    }
+    .right-panel {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
 }

@@ -13,11 +13,11 @@ def home(request):
             login(request, user)
             
             # Redirect based on user role
-            if user.is_admin() or user.is_superuser == 'manager':
-                return redirect('/admin/')  # Django Admin Panel
-            elif user.is_teller() == 'teller':
+            if user.is_admin:
+                return redirect('manager_dashboard')  # Manager Dashboard
+            elif user.is_teller:
                 return redirect('teller_dashboard')  # Teller Dashboard
-            elif user.is_customer() == 'customer':
+            elif user.is_customer:
                 return redirect('customer_dashboard')  # Customer Dashboard
             else:
                 messages.error(request, "Invalid role assigned.")
@@ -26,6 +26,11 @@ def home(request):
             return render(request, 'users/home.html', {'error_message': 'Invalid credentials'})
     
     return render(request, 'users/home.html')
+
+# Mnager Dashboard View
+@login_required
+def manager_dashboard(request):
+    return render(request, 'users/manager_dashboard.html')
 
 # Teller Dashboard View
 @login_required
