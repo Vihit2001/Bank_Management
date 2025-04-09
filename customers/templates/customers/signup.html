@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static%}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +11,8 @@
     <form method="post">
         {% csrf_token %}
         {{ form }}
-        <button type="submit">Sign Up</button>
+        <button type="submit" onclick="disp()">Sign Up</button>
     </form>
+    <script src="{% static  'customers/js/scripts.js'%}"></script>
 </body>
 </html>
