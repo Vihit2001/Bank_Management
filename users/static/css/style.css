@@ -8,11 +8,12 @@
 
 /* Full Page Background */
 body {
+    background: url('/static/images/photo2.jpg') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #f4f4f4;
+    /* background: #f4f4f4; */
 }
 
 /* Container for Split Layout */
@@ -28,7 +29,7 @@ body {
 /* Left Panel (Bank Info) */
 .left-panel {
     width: 50%;
-    background: url('/static/images/phot0.jpg') no-repeat center center/cover;
+    background: url('/static/images/photo2.jpg') no-repeat center center/cover;
     position: relative;
     display: flex;
     justify-content: center;
@@ -45,7 +46,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Dark overlay for better text visibility */
+    background: rgba(0, 0, 0, 0.6);
+    /* Dark overlay for better text visibility */
 }
 
 /* Bank Info Text */
@@ -69,7 +71,7 @@ body {
 /* Right Panel (Login Form) */
 .right-panel {
     width: 50%;
-    background: #fff;
+    background: #dc9e5c;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,13 +107,13 @@ body {
 button {
     width: 100%;
     padding: 12px;
-    background: #007bff;
+    background: #a09764;
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-size: 16px;
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -140,10 +142,12 @@ button:hover {
         width: 90%;
         height: auto;
     }
+
     .left-panel {
         width: 100%;
         height: 40vh;
     }
+
     .right-panel {
         width: 100%;
         height: auto;

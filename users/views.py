@@ -17,8 +17,8 @@ def home(request):
                 return redirect('manager_dashboard')  # Manager Dashboard
             elif user.is_teller:
                 return redirect('teller_dashboard')  # Teller Dashboard
-            elif user.is_customer:
-                return redirect('customer_dashboard')  # Customer Dashboard
+            elif user.is_accountant:
+                return redirect('accountant_dashboard')  # Customer Dashboard
             else:
                 messages.error(request, "Invalid role assigned.")
                 return redirect('home')
@@ -37,7 +37,8 @@ def manager_dashboard(request):
 def teller_dashboard(request):
     return render(request, 'users/teller_dashboard.html')
 
-# Customer Dashboard View
 @login_required
-def customer_dashboard(request):
-    return render(request, 'users/customer_dashboard.html')
+def accountant_dashboard(request):
+    return render(request, 'users/accountant_dashboard.html')
+
+
