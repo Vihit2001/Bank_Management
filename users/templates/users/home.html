@@ -1,34 +1,44 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Bank</title>
-    {% load static %}
+    <title>Bank Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <div class="container">
-        <!-- Left Section: Bank Name -->
-        <div class="left-section">
-            <h1 class="bank-name">My Bank</h1>
+        <!-- Left Side (Bank Info) -->
+        <div class="left-panel">
+            <div class="overlay"></div>
+            <div class="bank-info">
+                <h1>MP Bank</h1>
+                <p>Secure & Reliable Banking Services</p>
+                <p>Manage your accounts, transactions, and loans effortlessly.</p>
+            </div>
         </div>
 
-        <!-- Right Section: Login Form -->
-        <div class="right-section">
+        <!-- Right Side (Login Form) -->
+        <div class="right-panel">
             <div class="login-box">
-                <h2>Login</h2>
+                <h2>Login to Your Account</h2>
                 <form method="POST">
                     {% csrf_token %}
-                    <input type="text" name="username" placeholder="Username" required><br>
-                    <input type="password" name="password" placeholder="Password" required><br>
+                    <div class="input-group">
+                        <input type="text" name="username" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
                     <button type="submit">Login</button>
+                    <p class="register-link">Don't have an account? <a href="#">Register</a></p>
                 </form>
-                {% if error_message %}
-                <p class="error">{{ error_message }}</p>
-                {% endif %}
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </body>
 </html>
+

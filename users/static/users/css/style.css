@@ -1,4 +1,5 @@
 /* General Styling */
+{% load staticfiles %}
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +9,7 @@
 
 /* Full Page Background */
 body {
-    background-image:url("/static/images/photo2.jpg");
+    background-image: url('{% static "images/photo2.jpg" %}');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center; 
@@ -32,7 +33,7 @@ body {
 /* Left Panel (Bank Info) */
 .left-panel {
     width: 50%;
-    background-image: url("/static/images/photo2.jpg") no-repeat center center/cover;
+    background-image: url('{% static "users/images/photo2.jpg" %}') no-repeat center center/cover;
     position: relative;
     display: flex;
     justify-content: center;

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    {% block extracss%}<link rel="stylesheet" href="{% static 'css/base.css' %}">{% endblock extracss%}
+</head>
+<body>
+    {% block navbar%}
+    <nav class="navbar">
+        <div class="logo">
+              <img src="mplogo.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+              {% block logo%}
+              Manager
+              {% endblock logo%}
+          </div>
+       
+        <ul class="nav-links">
+            <li><a href="">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">KYC</a></li>
+            <li><a href="#">Loans</a></li>
+            <li><a href="#">Transactions</a></li>
+            <li><a href="#">Accounts</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="/users/home/">Logout</a></li>
+        </ul>
+    </nav>
+    
+    {% endblock navbar%}
+    <div class="container">
+        {% block content%}
+       
+        {% endblock content%}  
+    </div>
+      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>

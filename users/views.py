@@ -13,12 +13,14 @@ def home(request):
             login(request, user)
             
             # Redirect based on user role
-            if user.is_admin() or user.is_superuser == 'manager':
-                return redirect('/admin/')  # Django Admin Panel
-            elif user.is_teller() == 'teller':
+            if user.is_admin:
+                return redirect('manager_dashboard')  # Manager Dashboard
+            elif user.is_teller:
                 return redirect('teller_dashboard')  # Teller Dashboard
-            elif user.is_customer() == 'customer':
-                return redirect('customer_dashboard')  # Customer Dashboard
+            elif user.is_accountant:
+                return redirect('accountant_dashboard')  # accountant Dashboard
+            elif user.is_customer_service_representative:
+                return redirect('customer_service_representative_dashboard') # CSR Dashboard
             else:
                 messages.error(request, "Invalid role assigned.")
                 return redirect('home')
@@ -27,12 +29,22 @@ def home(request):
     
     return render(request, 'users/home.html')
 
+# Mnager Dashboard View
+@login_required
+def manager_dashboard(request):
+    return render(request, 'users/manager_dashboard.html')
+
 # Teller Dashboard View
 @login_required
 def teller_dashboard(request):
     return render(request, 'users/teller_dashboard.html')
 
-# Customer Dashboard View
 @login_required
-def customer_dashboard(request):
-    return render(request, 'users/customer_dashboard.html')
+def accountant_dashboard(request):
+    return render(request, 'users/accountant_dashboard.html')
+
+@login_required
+def customer_service_representative_dashboard(request):
+    return render(request, 'users/customer_service_representative_dashboard.html')
+
+
