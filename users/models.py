@@ -7,9 +7,10 @@ class CustomUser(AbstractUser):
         ("admin", "Admin"),
         ("teller", "Teller"),
         ("accountant", "Accountant"),
+        ("customer_service_representative","customer_service_representative")
     ]
     
-    role = models.CharField(max_length=10, choices=ROLE_CHOICES)
+    role = models.CharField(choices=ROLE_CHOICES)
 
     @property
     def is_admin(self):
@@ -17,12 +18,15 @@ class CustomUser(AbstractUser):
 
     @property
     def is_teller(self):
-
         return self.role and self.role == "teller"
 
     @property
     def is_accountant(self):
         return self.role and self.role == "accountant"
+
+    @property
+    def is_customer_service_representative(self):
+        return self.role and self.role == "customer_service_representative"
 
     def __str__(self):
         return f"{self.username} ({self.role})"

@@ -1,0 +1,119 @@
+{% extends "users/manager_dashboard.html" %}
+{% load static%}
+{% block title%}
+    Bank - Accounts_list
+{% endblock title%} 
+
+{% block logo%}
+    Service Representative
+{% endblock logo%} 
+{% block extracss%}<link rel="stylesheet" href="{% static 'accounts/css/style1.css' %}">{% endblock extracss%}
+{% comment %} <!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'accounts/css/style1.css' %}">
+    <title>Bank -Accounts_list</title>
+</head>
+<body>
+<div>
+    <div>
+    <nav class="navbar">
+        <div class="logo">
+              <img src="mplogo.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+             {% block logo%}
+                Service Representative
+              {% endblock logo%} 
+          </div>
+       
+        <ul class="nav-links">
+            <li><a href="">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">KYC</a></li>
+            <li><a href="#">Loans</a></li>
+            <li><a href="#">Transactions</a></li>
+            <li><a href="#">Accounts</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="/users/home/">Logout</a></li>
+        </ul>
+    </nav>
+</div>    {% endcomment %}
+{% block content%}
+<table>
+    <button><a href="/accounts/accounts_form/">New Account</a></button>
+        <tr>
+           <th>Account Number</th>
+           <th>Account Holder</th>
+           <th>Account Type</th>
+           <th>Balance</th>
+           <th>Date opened</th>
+        </tr>
+        {% for account in accounts %}
+            <tr>
+            <td>
+                <a href="/accounts/{{account.id}}/detail/" onMouseOver="this.style.color='red'" onMouseOut="this.style.color='blue'">{{account.account_no}}</a>    
+            </td>
+            <td>
+                {{account.account_holder}} {% comment %} <a href="/app4/{{student.id}}/update/">Update</a>
+                <a href="/app4/{{student.id}}/delete/">Delete</a> {% endcomment %}
+            </td>
+            <td>
+                {{account.account_type}}
+            </td>
+            <td>
+                {{account.balance}}
+            </td>
+            <td>
+                {{account.date_opened}}
+            </td>
+            </tr>
+        {% endfor %}
+</table>    
+{% endblock content%} 
+
+
+
+
+
+
+
+
+
+{% comment %} <div class="container">
+    <table>
+        <button><a href="/accounts/accounts_form/">New Account</a></button>
+            <tr>
+               <th>Account Number</th>
+               <th>Account Holder</th>
+               <th>Account Type</th>
+               <th>Balance</th>
+               <th>Date opened</th>
+            </tr>
+            {% for account in accounts %}
+            <tr>
+               <td>
+                   <a href="/accounts/{{account.id}}/detail/" onMouseOver="this.style.color='red'" onMouseOut="this.style.color='blue'">{{account.account_no}}</a>    
+               </td>
+               <td>
+                  {{account.account_holder}} {% comment %} <a href="/app4/{{student.id}}/update/">Update</a>
+                   <a href="/app4/{{student.id}}/delete/">Delete</a> {% endcomment %}
+               {% comment %} </td>
+               <td>
+                   {{account.account_type}}
+               </td>
+               <td>
+                   {{account.balance}}
+               </td>
+               <td>
+                   {{account.date_opened}}
+               </td>
+            </tr>
+            {% endfor %}
+    </table>    
+    </div>
+</div>
+    
+</body>
+</html> {% endcomment %} 

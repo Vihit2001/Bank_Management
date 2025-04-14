@@ -1,0 +1,27 @@
+{% extends "users/manager_dashboard.html" %}
+
+{% block navbar%}
+<nav class="navbar">
+    <div class="logo">
+          <img src="mplogo.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+          {% block logo%}
+          Service Representative
+          {% endblock logo%}
+      </div>
+   
+    <ul class="nav-links">
+        <li><a href="">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">KYC</a></li>
+        <li><a href="#">Loans</a></li>
+        <li><a href="#">Transactions</a></li>
+        <li><a href="/accounts/accounts_list/">Accounts</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="/users/home/">Logout</a></li>
+    </ul>
+</nav>
+
+{% endblock navbar%}
+{%block content%}
+
+{% endblock content%} 

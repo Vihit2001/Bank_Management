@@ -1,0 +1,12 @@
+{% extends "users/manager_dashboard.html" %}
+
+{% load static%}
+{% block content%}
+    <h3>Form</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Submit Now">
+    </form>
+
+{% block content%}
