@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import CustomUser
+from .models import CustomUser,Staff
 
 class CustomUserAdmin(UserAdmin):
     list_display = ('username', 'email', 'role', 'is_staff', 'is_active')  # Display these fields in the admin panel
@@ -18,7 +18,10 @@ class CustomUserAdmin(UserAdmin):
         }),
     )
     search_fields = ('username', 'email')
-    ordering = ('username',)
-
+    
 # Register CustomUser with the custom admin class
 admin.site.register(CustomUser, CustomUserAdmin)
+@admin.register(Staff)
+class StaffAdmin(admin.ModelAdmin):
+    list_display=('gender','address','position','dob','salary','qualification')
+    

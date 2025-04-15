@@ -1,16 +1,95 @@
 from django import forms
+from django.forms.widgets import Input
 from .models import Customer, Accounts
 
 class CustomerForm(forms.ModelForm):
     class Meta:
         model = Customer
         fields = "__all__"
+        widgets = {
+        "full_name": Input(attrs={
+            "type":"text",
+            "placeholder":"Type in full_name",
+        }),
+
+        "email": Input(attrs={
+            "type":"email",
+            "placeholder":"Type in email",
+        }),
+
+        "phone_number": Input(attrs={
+            "type":"number",
+            "placeholder":"Type in phone_number",
+        }),
+
+        "address": Input(attrs={
+            "type":"text",
+            "placeholder":"Type in address",
+        }),
+        
+        "dob": Input(attrs={
+            "type":"date",
+            "placeholder":"Type in dob",
+        }),
+        
+        # "gender": Input(attrs={
+        #     "type":"select",
+        #     "placeholder":"Type in gender",
+        # }),
+        
+        "pan_card": Input(attrs={
+            "type":"number",
+            "placeholder":"Type in pan_card",
+        }),
+        
+        "aadhaar_number": Input(attrs={
+            "type":"number",
+            "placeholder":"Type in aadhaar_number",
+        }),
+        
+        # "profile": Input(attrs={
+        #     "type":"file",
+        #     "placeholder":"Type in profile",
+        # }),
+    }
+
         
 class AccountsForm(forms.ModelForm):
     class Meta:
         model = Accounts
         fields = "__all__"
+        exclude = ["account_holder"]
+        widgets = {
+        "account_no": Input(attrs={
+            "type":"number",
+            "placeholder":"Type in account_no",
+        }),
 
+        # "account_type": Input(attrs={
+        #     "type":"select",
+        #     "placeholder":"Type in account_type",
+        # }),
+        
+        "branch_name": Input(attrs={
+            "type":"text",
+            "placeholder":"Type in branch_name",
+        }),
+        
+        "ifsc_code": Input(attrs={
+            "type":"text",
+            "placeholder":"Type in ifsc_code",
+        }),
+        
+        "balance": Input(attrs={
+            "type":"number",
+            "placeholder":"Type in balance",
+        }),
+
+        "date_opened": Input(attrs={
+            "type":"date",
+            "placeholder":"Type in date_opened ",
+        }),
+        }
 
 
 
