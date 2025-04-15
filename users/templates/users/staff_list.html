@@ -1,0 +1,50 @@
+{% extends "users/manager_dashboard.html" %}
+{% load static%}
+{% block title%}
+    Bank - Staff_list
+{% endblock title%} 
+
+{% block extracss%}<link rel="stylesheet" href="{% static 'accounts/css/style1.css' %}">{% endblock extracss%}
+
+{% block content%}
+<table>
+        <tr>
+           {% comment %} <th>Staff ID</th> {% endcomment %}
+           <th>First Name</th>
+           <th>Second Name</th>
+           <th>Gender</th>
+           <th>position</th>
+           <th>salary</th>
+           <th>Date joined</th>
+        </tr>
+        {% for s in staff %}
+            <tr>
+            <td>
+                <a href="/accounts/{{account.id}}/detail/" onMouseOver="this.style.color='red'" onMouseOut="this.style.color='blue'">{{s.user.first_name}}</a>    
+            </td>
+            {% comment %} <td>
+                {{s.user.first_name}} {% comment %} <a href="/app4/{{student.id}}/update/">Update</a>
+                <a href="/app4/{{student.id}}/delete/">Delete</a> {% endcomment %}
+            </td>
+            <td>
+                {{s.user.last_name}}
+            </td>
+            <td>
+                {{s.user.role}}
+            </td>
+            <td>
+                {{s.gender}}
+            </td>
+            <td>
+                {{s.salary}}
+            </td>
+            <td>
+                {{s.user.date_joined}}
+            </td>
+            </tr>
+        {% endfor %}
+</table> 
+<div class="button-container">
+    <button><a href="/users/staff_form/">New Staff</a></button>
+</div>   
+{% endblock content%} 

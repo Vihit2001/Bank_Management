@@ -8,41 +8,9 @@
     Service Representative
 {% endblock logo%} 
 {% block extracss%}<link rel="stylesheet" href="{% static 'accounts/css/style1.css' %}">{% endblock extracss%}
-{% comment %} <!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'accounts/css/style1.css' %}">
-    <title>Bank -Accounts_list</title>
-</head>
-<body>
-<div>
-    <div>
-    <nav class="navbar">
-        <div class="logo">
-              <img src="mplogo.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-             {% block logo%}
-                Service Representative
-              {% endblock logo%} 
-          </div>
-       
-        <ul class="nav-links">
-            <li><a href="">Home</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">KYC</a></li>
-            <li><a href="#">Loans</a></li>
-            <li><a href="#">Transactions</a></li>
-            <li><a href="#">Accounts</a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="/users/home/">Logout</a></li>
-        </ul>
-    </nav>
-</div>    {% endcomment %}
+
 {% block content%}
 <table>
-    <button><a href="/accounts/accounts_form/">New Account</a></button>
         <tr>
            <th>Account Number</th>
            <th>Account Holder</th>
@@ -70,7 +38,10 @@
             </td>
             </tr>
         {% endfor %}
-</table>    
+</table> 
+<div class="button-container">
+    <button><a href="/accounts/accounts_form/">New Account</a></button>
+</div>   
 {% endblock content%} 
 
 
